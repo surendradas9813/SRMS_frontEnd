@@ -4,14 +4,17 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 
 import Auth from './components/Auth/Auth';
+import Navbar from './components/Navbar/Navbar';
+
+
 
 const App = () => (
   <BrowserRouter>
     <Container maxWidth="lg">
-
-    <Auth />
+    
       <Switch>
-        {/* <Route path="/auth" exact component={Auth} /> */}
+          <Route path="/" exact component={Auth} />
+          <Route path="/student" exact component={Navbar} /> 
       </Switch>
     </Container>
   </BrowserRouter>

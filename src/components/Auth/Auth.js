@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-//import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
 
-//import { signin, signup } from '../../actions/auth';
+import { signin, signup } from '../../actions/auth';
 //import { AUTH } from '../../constants/actionTypes';
 import useStyles from './styles';
 import Input from './Input';
@@ -16,7 +16,7 @@ const initialState = { firstName: '', lastName: '', email: '', password: '', con
 const SignUp = () => {
   const [form, setForm] = useState(initialState);
   const [isSignup, setIsSignup] = useState(false);
-//   const dispatch = useDispatch();
+   const dispatch = useDispatch();
   const history = useHistory();
   const classes = useStyles();
 
@@ -29,19 +29,16 @@ const SignUp = () => {
     setShowPassword(false);
   };
 
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-//     if (isSignup) {
-//       dispatch(signup(form, history));
-//     } else {
-//       dispatch(signin(form, history));
-//     }
-//   };
+    if (isSignup) {
+      dispatch(signup(form, history));
+    } else {
+      dispatch(signin(form, history));
+    }
+  };
 
-const handleSubmit = ()=>{
-    
-}
 
   
 
